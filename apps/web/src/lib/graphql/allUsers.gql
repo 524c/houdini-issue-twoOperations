@@ -1,0 +1,17 @@
+query AllUsers {
+  AllUsers {
+    ... on QueryAllUsersSuccess {
+      data {
+        pk
+        id
+        name
+      }
+    }
+    ... on ZodError {
+      message
+    }
+    ... on Error {
+      message
+    }
+  }
+}

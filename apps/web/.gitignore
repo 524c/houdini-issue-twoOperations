@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+/api/uploads
+.env
+.env.*
+!.env.example
+pnpm-lock.yaml
+npm-lock.yaml
+front/vite.config.js.timestamp*
+front/$houdini
+$houdini

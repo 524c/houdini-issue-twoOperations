@@ -1,0 +1,5 @@
+{
+  "explorer.excludeGitIgnore": false,
+  "cSpell.enableFiletypes": ["svelte", "typescript"],
+  "cSpell.language": "en,pt-BR"
+}
