@@ -15,7 +15,7 @@ type Query {
   AllUsers: QueryAllUsersResult!
 
   """returns user data"""
-  User(userPk: Int!): QueryUserResult!
+  User(pk: Int!): QueryUserResult!
   hello(name: String): QueryHelloResult!
 }
 

@@ -12,8 +12,7 @@
     };
   }
 
-  async function getUser() {
-    console.log('getUser');
+  async function GetUser() {
     color = startColor;
     await G_User.fetch({ variables: { pk } });
     setTimeout(() => {
@@ -22,11 +21,11 @@
   }
 </script>
 
-<button on:click={getUser}>getUser</button>
+<button on:click={GetUser}>GetUser</button>
 <br />
 
 {#if $G_User?.data}
-  <pre class={color}>G_User: {JSON.stringify($G_User?.data, null, 2)}</pre>
+  <pre class={color}>{JSON.stringify($G_User?.data?.User, null, 2)}</pre>
   <br />
 {/if}
 
