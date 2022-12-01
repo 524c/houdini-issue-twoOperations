@@ -6,8 +6,8 @@ function logRequest(
 ) {
   //const { req } = args.args.contextValue;
   const params = args?.args?.contextValue?.params;
+  //skip annoying logs
   if (params?.query.indexOf("query IntrospectionQuery") === -1) {
-    //skip annoying logs
     consola.log(params);
   }
 }

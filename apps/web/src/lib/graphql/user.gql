@@ -1,5 +1,5 @@
-query User {
-  User(userPk: 4) {
+query User($pk: Int!) {
+  User(pk: $pk) {
     ... on QueryUserSuccess {
       data {
         pk

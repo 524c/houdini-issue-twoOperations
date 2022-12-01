@@ -1,6 +1,13 @@
 import type { ObjectRef } from "@pothos/core";
 import { builder } from "../builder";
 
+export interface UserInput {
+  email: string;
+  password?: string;
+  name: string;
+  avatarUrl?: string;
+}
+
 interface User {
   id: string;
   pk: number;
@@ -58,14 +65,12 @@ builder.queryField("User", (t) =>
     type: UserObject,
     description: "returns user data",
     errors: {},
-    args: { userPk: t.arg({ type: "Int", required: true }) },
-    resolve: async (_, { userPk }: { userPk: number }) => {
-      if (
-        !(typeof userPk === "number" && userPk > 0 && userPk <= users.length)
-      ) {
-        throw new Error("Invalid userPk");
+    args: { pk: t.arg({ type: "Int", required: true }) },
+    resolve: async (_, { pk }: { pk: number }) => {
+      if (!(typeof pk === "number" && pk > 0 && pk <= users.length)) {
+        throw new Error("Invalid user primary key");
       }
-      return users[userPk - 1];
+      return users[pk - 1];
     },
   })
 );
