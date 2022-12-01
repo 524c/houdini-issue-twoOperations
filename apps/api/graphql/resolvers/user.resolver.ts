@@ -1,6 +1,13 @@
 import type { ObjectRef } from "@pothos/core";
 import { builder } from "../builder";
 
+export interface UserInput {
+  email: string;
+  password?: string;
+  name: string;
+  avatarUrl?: string;
+}
+
 interface User {
   id: string;
   pk: number;

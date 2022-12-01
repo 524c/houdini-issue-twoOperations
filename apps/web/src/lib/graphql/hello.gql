@@ -1,7 +1,0 @@
-query Hello($name: String!) {
-  hello(name: $name) {
-    ... on QueryHelloSuccess {
-      data
-    }
-  }
-}
