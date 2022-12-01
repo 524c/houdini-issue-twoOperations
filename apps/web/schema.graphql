@@ -8,14 +8,51 @@ interface Error {
   message: String!
 }
 
+input FUserInput {
+  provider: OauthProviders!
+  subject: String!
+  userId: String!
+}
+
+"""User object type"""
+type FUserObject {
+  id: ID!
+  pk: Int!
+  provider: String!
+  subject: String!
+}
+
+"""Response object for authentication queries"""
+type FUserResult {
+  token: String!
+  user: FUserObject!
+}
+
 scalar File
+
+type Mutation {
+  """Create Federated User"""
+  FederatedSignup(FUserInput: FUserInput!, UserInput: UserInput!): MutationFederatedSignupResult!
+}
+
+union MutationFederatedSignupResult = BaseError | MutationFederatedSignupSuccess | ZodError
+
+type MutationFederatedSignupSuccess {
+  data: FUserResult!
+}
+
+enum OauthProviders {
+  APPLE
+  FACEBOOK
+  GOOGLE
+}
 
 type Query {
   """returns all users"""
   AllUsers: QueryAllUsersResult!
 
   """returns user data"""
-  User(userPk: Int!): QueryUserResult!
+  User(pk: Int!): QueryUserResult!
   hello(name: String): QueryHelloResult!
 }
 
@@ -42,6 +79,12 @@ type User {
   id: ID!
   name: String!
   pk: Int!
+}
+
+input UserInput {
+  email: String!
+  name: String!
+  password: String!
 }
 
 type ZodError implements Error {

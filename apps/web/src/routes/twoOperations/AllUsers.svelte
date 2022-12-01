@@ -5,7 +5,7 @@
 
   $: color = startColor;
 
-  async function getAllUsers() {
+  async function GetAllUsers() {
     console.log('getAllUsers');
     color = startColor;
     await G_AllUsers.fetch();
@@ -15,11 +15,11 @@
   }
 </script>
 
-<button on:click={getAllUsers}>getAllUsers</button>
+<button on:click={GetAllUsers}>GetAllUsers</button>
 <br />
 
 {#if $G_AllUsers?.data}
-  <pre class={color}>G_AllUsers: {JSON.stringify($G_AllUsers?.data, null, 2)}</pre>
+  <pre class={color}>{JSON.stringify($G_AllUsers?.data?.AllUsers, null, 2)}</pre>
   <br />
 {/if}
 

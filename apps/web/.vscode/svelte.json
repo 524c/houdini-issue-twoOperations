@@ -1,7 +1,0 @@
-{
-  "script": {
-    "prefix": "script",
-    "description": "Insert code for TypeScript script tag.",
-    "body": ["<script lang=\"ts\">", "\t$0", "</script>"]
-  }
-}

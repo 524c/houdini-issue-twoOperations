@@ -113,3 +113,6 @@ builder.queryType({
     }),
   }),
 });
+
+// Define the default mutation type on the schema (required)
+builder.mutationType({});
